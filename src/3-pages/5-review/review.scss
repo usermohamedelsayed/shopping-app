@@ -1,0 +1,93 @@
+.Review {
+    .container {
+        .row-1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            @media screen and (max-width: 620px) {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 30px;
+            }
+
+            .box {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 0 auto;
+
+                &:last-child {
+                    @media screen and (max-width: 620px) {
+                        grid-column: span 2;
+                    }
+                }
+
+                .icon {
+                    width: 40px;
+                    height: 40px;
+                    background-color: var(--cr-main);
+                    display: grid;
+                    place-items: center;
+                    border-radius: 50%;
+                    font-size: 20px;
+                    color: white;
+                }
+
+                .title {
+                    font-weight: 600;
+                }
+
+                .desc {
+                    font-size: 12px;
+                    color: var(--cr-text-muted);
+                }
+            }
+        }
+
+        .row-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 70px;
+
+            .box {
+                position: relative;
+                background-color: var(--bg-submain);
+                padding: 15px;
+                border-radius: 3px;
+
+                img {
+                    position: absolute;
+                    width: 60px;
+                    height: 60px;
+                    right: -10px;
+                    top: -25px;
+                    border: 6px solid var(--bg-main);
+                    border-radius: 50%;
+                }
+
+                .title {
+                    font-weight: 600;
+                }
+
+                .subtitle {
+                    font-size: 14px;
+                    color: var(--cr-text-muted);
+                }
+
+                .stars {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    color: orange;
+                    font-size: 20px;
+                    margin: 5px 0 6px;
+                }
+
+                .desc {
+                    font-size: 13px;
+                    color: var(--cr-text-muted);
+                }
+            }
+        }
+    }
+}

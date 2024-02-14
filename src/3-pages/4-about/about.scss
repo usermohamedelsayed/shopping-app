@@ -1,0 +1,257 @@
+.About {
+    .aboutContainer {
+        display: grid;
+        grid-template-columns: .9fr 1fr;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        @media screen and (max-width: 767px) {
+            grid-template-columns: 1fr;
+
+            h2 {
+                text-align: center;
+            }
+
+            span {
+                width: 90%;
+                text-align: center;
+                margin: auto;
+            }
+
+            button {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .anamtion {
+                padding-right: 66px;
+            }
+        }
+
+        .anamtion {
+            max-width: 550px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            margin-bottom: 6px;
+        }
+
+        span {
+            font-size: 13px;
+            color: var(--cr-text-muted);
+            max-width: 500px;
+            width: 100%;
+            line-height: 1.7;
+            display: block;
+        }
+    }
+
+    .galleryContainer {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-auto-rows: 250px;
+        gap: 20px;
+        background-color: var(--bg-second);
+        border-radius: 5px;
+        border: 2px solid var(--cr-main);
+        padding: 20px;
+
+        .popupGallery {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: .3s ease;
+            pointer-events: none;
+
+            &.open {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .overlay {
+                background-color: var(--bg-backDrob);
+                position: fixed;
+                inset: 0;
+            }
+
+
+            .swiper {
+                max-width: 800px;
+                width: 95%;
+                height: 100vh;
+                margin-top: -70px;
+
+                .swiper-slide {
+                    text-align: center;
+                    font-size: 18px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+
+                    .boxView {
+                        width: 90%;
+                        height: 60vh;
+                        overflow: hidden;
+                        border-radius: 10px;
+                        position: relative;
+
+                        .closeBtn {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            background-color: red;
+                            z-index: 20;
+                            width: 60px;
+                            height: 30px;
+                            font-size: 20px;
+                            display: grid;
+                            place-items: center;
+                            cursor: pointer;
+                            border-radius: 0 0 0 10px;
+                            transition: .2 ease;
+                            color: white;
+
+                            &:hover {
+                                background-color: var(--cr-dengar-hover);
+                            }
+                        }
+
+                        img {
+                            position: absolute;
+                            inset: 0;
+                            width: 100%;
+                            height: 100%;
+                            cursor: grab;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .swiper-pagination {
+                    bottom: 10%;
+
+                    .swiper-pagination-bullet {
+                        background-color: var(--cr-main);
+                    }
+                }
+
+                .swiper-button-next,
+                .swiper-button-prev {
+                    top: 88%;
+                    z-index: 1000;
+                    width: 41px;
+                    height: 41px;
+                    background: var(--cr-main);
+                    color: aliceblue;
+                    padding: 0;
+                    border-radius: 10px;
+
+                    &::after {
+                        font-size: 25px;
+                    }
+
+                    &:active {
+                        scale: 0.9;
+                    }
+                }
+
+                .swiper-button-next {
+                    right: 25%;
+
+                    @media screen and (max-width: 767px) {
+                        right: 13%;
+
+                    }
+                }
+
+                .swiper-button-prev {
+                    left: 25%;
+
+                    @media screen and (max-width: 767px) {
+
+                        left: 13%;
+                    }
+                }
+            }
+        }
+
+        legend {
+            font-size: 20px;
+            margin-left: 40px;
+            margin-bottom: 10px;
+        }
+
+        @media screen and (max-width: 767px) {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            border: 3px solid var(--cr-main);
+            border-left: 0;
+            border-right: 0;
+            border-radius: 10px;
+        }
+
+        .box {
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+
+            img {
+                position: absolute;
+                inset: 0;
+            }
+
+            &:hover {
+                .optionsGallery {
+                    bottom: 0;
+                }
+            }
+
+            .optionsGallery {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: -100%;
+                backdrop-filter: blur(3px);
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: .3s ease;
+                gap: 10px;
+
+                i {
+                    width: 40px;
+                    height: 40px;
+                    display: grid;
+                    place-items: center;
+                    background-color: var(--bg-main);
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-size: 20px;
+                    transition: .3s ease;
+                    border: 1px solid var(--cr-border);
+
+                    &:active {
+                        scale: .9;
+                    }
+
+                    &:hover {
+                        background-color: var(--cr-main);
+                    }
+                }
+            }
+        }
+    }
+}

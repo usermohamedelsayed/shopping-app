@@ -1,0 +1,27 @@
+.SearchResult {
+    padding-top: 140px;
+
+    .container {
+        .productSearch {
+
+            background-color: var(--bg-second);
+            padding: 15px;
+            border: 2px solid var(--cr-main);
+            border-radius: 5px;
+
+            @media screen and (max-width: 767px) {
+                border: 3px solid var(--cr-main);
+                padding: 0;
+                border-left: 0;
+                border-right: 0;
+                border-radius: 10px;
+            }
+
+            legend {
+                font-size: 20px;
+                margin-left: 40px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

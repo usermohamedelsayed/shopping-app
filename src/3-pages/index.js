@@ -1,0 +1,10 @@
+export { default as Home } from "./1-home/Home";
+export { default as Shop } from "./2-shop/Shop";
+export { default as Blog } from "./3-blog/Blog";
+export { default as About } from "./4-about/About";
+export { default as Review } from "./5-review/Review";
+export { default as Contact } from "./6-contact/Contact";
+export { default as Favorite } from "./7-favorite/Favorite";
+export { default as Cart } from "./8-cart/Cart";
+export { default as DetailsProduct } from "./9-detailsProduct/DetailsProduct";
+export { default as SearchResult } from "./10-searchResult/SearchResult";

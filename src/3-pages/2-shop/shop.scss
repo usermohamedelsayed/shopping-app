@@ -1,0 +1,586 @@
+.Shop {
+    .backdrob {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        opacity: 0;
+        pointer-events: none;
+        transition: .2s ease;
+
+        &.active {
+            background-color: var(--bg-backDrob);
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    .containerProducts {
+        display: grid;
+        grid-template-columns: 230px 3fr;
+        align-items: start;
+        gap: 15px;
+        background-color: var(--bg-second);
+        border-radius: 5px;
+        border: 2px solid var(--cr-main);
+
+        legend {
+            font-size: 20px;
+            margin-left: 40px;
+            margin-bottom: 10px;
+        }
+
+        @media screen and (max-width: 767px) {
+            grid-template-columns: 1fr;
+            border: 3px solid var(--cr-main);
+            border-left: 0;
+            border-right: 0;
+            border-radius: 10px;
+        }
+
+        @media screen and (min-width: 768px) {
+            padding: 0 15px 15px;
+        }
+    }
+
+    .sectionLeft {
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        background-color: var(--bg-submain);
+        border: 1px solid var(--cr-border);
+        position: sticky;
+        top: 130px;
+        transition: .2s;
+        z-index: 10;
+
+        @media screen and (min-width: 768px) {
+            &.decraceTop {
+                top: 60px;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            padding: 20px;
+            z-index: 11111;
+            transition: .3s ease;
+            max-width: 700px;
+            width: 95%;
+
+            &.showSectionLeft {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        .BtnShowHideFilter {
+            display: none;
+        }
+
+        .line {
+            margin: 15px 0;
+            height: 1px;
+            width: 100%;
+            background-color: var(--cr-border);
+        }
+
+        .boxFilter {
+            .title {
+                font-weight: 500;
+                margin-bottom: 7px;
+            }
+
+            &.boxFilterCategory {
+
+                ul {
+                    @media screen and (max-width: 767px) {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 5px;
+                    }
+                }
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 5px;
+                    background-color: var(--bg-main);
+                    overflow: hidden;
+                    height: 40px;
+                    width: 100%;
+                    border-radius: 3px;
+                    cursor: pointer;
+                    border: 1px solid transparent;
+                    transition: .2s ease;
+                    position: relative;
+
+                    @media screen and (max-width: 767px) {
+                        margin-bottom: 0;
+                        height: 40px;
+                    }
+
+                    input {
+                        margin-left: 8px;
+                    }
+
+                    label {
+                        color: var(--cr-text-muted);
+                        font-size: 14px;
+                        position: relative;
+                        cursor: pointer;
+                        flex: 1;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        padding-left: 30px;
+
+                        &:hover {
+                            border: 1px solid var(--cr-main);
+                        }
+                    }
+
+                    input:checked+label {
+                        color: var(--cr-main);
+                        border: 1px solid var(--cr-main);
+                    }
+                }
+            }
+
+            &.boxFilterPrice {
+                .inputRange {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 20px;
+                    margin-bottom: 10px;
+
+                    @media screen and (max-width: 767px) {
+                        height: 30px;
+                    }
+
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 0 20px 20px 0;
+
+                        &:nth-child(1) {
+                            transform: rotate(-180deg);
+                            left: 0;
+                            padding-left: 7px;
+                        }
+
+                        &:nth-child(2) {
+                            right: 0;
+                            margin-left: -5px;
+                            padding-left: 3px;
+                        }
+
+                        -webkit-appearance: none;
+                        background-color: var(--bg-submain);
+                        border: 1px solid var(--cr-border);
+                        overflow: hidden;
+
+                        &::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            width: 18px;
+                            height: 18px;
+                            border-radius: 50%;
+                            background-color: var(--cr-main);
+                            scale: 1.3;
+                            transition: .3s ease background-color;
+                            box-shadow: -410px 0 0 400px var(--bg-main);
+                            cursor: pointer;
+
+                            @media screen and (max-width: 767px) {
+                                width: 23px;
+                                height: 23px;
+                            }
+                        }
+
+                        &::-webkit-slider-thumb:hover {
+                            background-color: var(--cr-successful);
+                        }
+                    }
+
+                }
+
+                button {
+                    width: 100%;
+                    background-color: var(--cr-main);
+                    padding: 5px 10px;
+                    margin-top: 10px;
+                    border-radius: 4px;
+                    color: #fff;
+                    font-size: 17px;
+                    transition: .2s ease;
+                    cursor: pointer;
+
+                    @media screen and (max-width: 767px) {
+                        padding: 10px;
+                        width: 150px;
+                    }
+
+                    &:hover {
+                        background-color: var(--cr-successful);
+                    }
+
+                    &:active {
+                        scale: .9;
+                    }
+                }
+
+                .inputRangeVal {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    input {
+                        width: 100%;
+                        background-color: var(--bg-main);
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        border: 1px solid var(--cr-border);
+                        -moz-appearance: none;
+                        -webkit-appearance: none;
+
+                        @media screen and (max-width : 767px) {
+                            padding: 10px;
+                        }
+
+                        &::-webkit-inner-spin-button,
+                        &::-webkit-outer-spin-button {
+                            -moz-appearance: none;
+                            -webkit-appearance: none;
+                        }
+                    }
+                }
+            }
+
+            &.boxFilterColor {
+                ul {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 10px;
+                    flex-wrap: wrap;
+
+                    li {
+                        width: 25px;
+                        height: 25px;
+                        background-color: red;
+                        border-radius: 50%;
+                        opacity: .5;
+                        border: 2px solid transparent;
+                        cursor: pointer;
+                        display: flex;
+                        justify-content: center;
+                        align-content: center;
+                        text-align: center;
+
+                        i {
+                            padding: 1px 1px 0 0;
+                            font-weight: 900;
+                            transition: .2s ease;
+                            scale: 0;
+                        }
+
+                        &:hover,
+                        &.active {
+                            opacity: 1;
+
+                            i {
+                                scale: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .BtnShowHideFilter {
+        display: flex;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: var(--cr-main);
+        border: 1px solid var(--cr-border);
+        box-shadow: 0 0 10px var(--cr-shadow);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        position: sticky;
+        top: 200px;
+        transition: .2s;
+        z-index: 100;
+        top: 130px;
+        left: 27px;
+        color: white;
+
+        &.active {
+            z-index: 10000;
+        }
+
+        &.decraceTop {
+            top: 50px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &:active {
+            scale: .9;
+        }
+
+        .desc {
+            position: absolute;
+            background-color: var(--cr-main);
+            font-size: 15px;
+            width: 250px;
+            text-align: center;
+            right: -260px;
+            top: -50px;
+            padding: 10px 5px;
+            border-radius: 3px;
+            opacity: 0;
+            cursor: auto;
+            transition: 1s ease;
+            pointer-events: none;
+            z-index: 100000;
+
+            &.active {
+                animation: descBtnFilterPro 1s ease forwards;
+            }
+        }
+
+        >span {
+            cursor: auto;
+            position: absolute;
+            background-color: transparent;
+            pointer-events: none;
+            display: block;
+            width: 200px;
+            height: 30px;
+            top: -6px;
+            right: -210px;
+            z-index: 100000;
+            display: none;
+
+            &.active {
+                display: block;
+            }
+
+            .spanRight {
+                position: absolute;
+                right: 0;
+                height: 100%;
+                width: 4px;
+                background-color: var(--cr-main);
+                display: block;
+                animation: arrowSpanRight .5s ease 1;
+            }
+
+            .spanBottom {
+                position: absolute;
+                bottom: 0;
+                height: 4px;
+                right: 0;
+                width: 0;
+                background-color: var(--cr-main);
+                display: block;
+                animation: arrowSpanBottom 1s .5s ease 1 forwards;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    background-color: transparent;
+                    top: 50%;
+                    transform: translateY(-50%) rotate(45deg) scale(0);
+                    border-bottom: 3px solid var(--cr-main);
+                    border-left: 3px solid var(--cr-main);
+                    animation: arrowSpanBottomAfter 1s .5s ease 1 forwards;
+                }
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            display: none;
+            opacity: .7;
+        }
+
+    }
+
+    .overlayBtnShowHideFilter {
+        display: none;
+
+        @media screen and (max-width: 767px) {
+            display: block;
+            position: fixed;
+            inset: 0;
+            top: 0;
+            background-color: var(--bg-backDrob);
+            z-index: 1000;
+            transition: .2s ease;
+            opacity: 0;
+            pointer-events: none;
+
+            &.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+
+    .sectionRight {
+        padding: 10px 0;
+        position: relative;
+
+        @media screen and (max-width: 767px) {
+            padding-bottom: 20px;
+        }
+
+        .controlles {
+            margin: 30px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            overflow: hidden;
+            width: fit-content;
+            height: 40px;
+
+            @media screen and (max-width: 767px) {
+                height: 45px;
+            }
+
+            button {
+                background-color: var(--cr-main);
+                color: white;
+                height: 30px;
+                width: 50px;
+                display: grid;
+                place-items: center;
+                cursor: pointer;
+                transition: .2s ease;
+                height: 100%;
+                font-size: 25px;
+
+                &:active {
+                    scale: .9;
+                }
+            }
+
+            .pagnation {
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                width: 160px;
+                scroll-behavior: smooth;
+                height: 100%;
+                position: relative;
+
+                &.smallWidth {
+                    width: 120px;
+                }
+
+                span {
+                    flex-shrink: 0;
+                    width: 40px;
+                    height: 100%;
+                    display: grid;
+                    place-items: center;
+                    cursor: pointer;
+                    user-select: none;
+                    transition: .3s ease;
+                    border-right: 1px solid var(--cr-border);
+                    background-color: var(--bg-second);
+
+                    &.active,
+                    &:hover {
+                        background-color: var(--bg-main);
+                        font-size: 19px;
+                    }
+                }
+
+                .length {
+                    position: sticky;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    background-color: red;
+                    border: 0;
+                    border-radius: 0;
+                    cursor: auto;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: red;
+                    }
+                }
+            }
+        }
+
+        .notFoundProducts {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .Error {
+                .player {
+                    max-width: 350px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes arrowSpanRight {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes arrowSpanBottom {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 95%;
+    }
+}
+
+@keyframes arrowSpanBottomAfter {
+    0% {
+        transform: translateY(-50%) rotate(45deg) scale(0);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(45deg) scale(1);
+    }
+}
+
+@keyframes descBtnFilterPro {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
