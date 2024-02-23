@@ -1,7 +1,7 @@
 import React from 'react'
 import "./footer.scss"
 import { Link } from 'react-router-dom'
-import logo from '../../1-assaset/tiger.jpg'
+import logo from '../../1-assaset/faveicon.png'
 
 let nameLocation = "shop"
 

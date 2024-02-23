@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./header.scss"
-import MyImg from '../../1-assaset/tiger.jpg'
+import MyImg from '../../1-assaset/faveicon.png'
 import { AiOutlineSearch } from "react-icons/ai"
 import { BsBagHeartFill, BsBagFill, BsFillSunFill } from "react-icons/bs"
 import { MdDarkMode } from "react-icons/md"
